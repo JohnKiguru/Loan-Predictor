@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'bootstrap-5.0.0-beta1-dist/css/bootstrap.css' %}">
+
+    <title>Loan Predict</title>
+</head>
+<body style="background-image: url({% static 'applicant.jpg' %}); background-repeat: no-repeat;
+            background-size: 1700px 800px;">
+
+
+<div class="container">
+
+    <h2 class="text">Loan Processing System</h2><br>
+    <div class="col-md-5">
+    {% if messages %}
+    <div class="alert alert-info">
+
+        {% for message in messages %}
+        <h3>{{message}}</h3>
+        {% endfor %}
+
+    </div>
+    {% endif %}
+        </div>
+
+    <form action="{% url 'loan' %}" method="post" class="row g-3 needs-validation" novalidate>
+        {% csrf_token %}
+        <div class="col-md-4" style="margin:24px;">
+
+
+            <label for="validationCustom01" class="form-label">Gender</label>
+            <select id="Gender" name="Gender" type="text" class="form-control" id="validationCustom01" required>
+
+                <option value="0">Male</option>
+                <option value="1">Female</option>
+
+            </select>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+
+        <div class="col-md-4" style="margin: 24px;">
+            <label for="validationCustom02" class="form-label">Marital Status</label>
+            <select id="Marital Status" name="Marital Status" type="text" class="form-control" id="validationCustom02"
+                    value="Otto" required>
+
+                <option value="0">Unmarried</option>
+                <option value="1">Married</option>
+            </select>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-4" style="margin: 24px;">
+            <label for="validationCustom03" class="form-label">Dependents</label>
+            <select id="Dependents" name="Dependents" type="text" class="form-control" id="validationCustom03"
+                    value="Otto" required>
+
+
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3 and above</option>
+            </select>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-4" style="margin: 24px;">
+            <label for="validationCustom04" class="form-label">Education</label>
+            <select id="Education" name="Education" type="text" class="form-control" id="validationCustom04"
+                    value="Otto" required>
+
+
+                <option value="0">Non Graduate</option>
+                <option value="1">Graduate</option>
+            </select>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-4" style="margin: 24px;">
+            <label for="validationCustom05" class="form-label">Self Employed</label>
+            <select id="SelfEmployed" name="SelfEmployed" type="text" class="form-control" id="validationCustom05"
+                    value="Otto" required>
+
+
+                <option value="0">No,Working in a company</option>
+                <option value="1">Yes, have own business</option>
+            </select>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-4" style="margin: 24px;">
+            <label for="validationCustom06" class="form-label">Property Area</label>
+            <select id="Property Area" name="Property Area" type="text" class="form-control" id="validationCustom06"
+                    value="Otto" required>
+
+
+                <option value="0">Rural</option>
+                <option value="1">Semi-Urban</option>
+                <option value="2">Urban</option>
+            </select>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-4" style="margin: 24px;">
+            <label for="validationCustom07" class="form-label">Applicant Income</label>
+            <select id="Applicant Income" name="Applicant Income" type="text" class="form-control"
+                    id="validationCustom07"
+                    value="Otto" required>
+
+
+                <option value="-1">₹ 0 - 3,50,000</option>
+                <option value="0">₹ 3,50,000 - 7,50,000</option>
+                <option value="1">₹ 7,50,000 and above</option>
+            </select>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-4" style="margin: 24px;">
+            <label for="validationCustom08" class="form-label">Co-Applicant Income</label>
+            <select id="Co-Applicant Income" name="Co-Applicant Income" type="text" class="form-control"
+                    id="validationCustom08"
+                    value="Otto" required>
+
+
+                <option value="0">₹ 0 - 2,20,000</option>
+                <option value="1">₹ 2,20,000 - 3,50,000</option>
+                <option value="2">₹ 3,50,000 and above</option>
+            </select>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-4" style="margin: 24px;">
+            <label for="validationCustom09" class="form-label">Loan Amount</label>
+            <select id="Loan Amount" name="Loan Amount" type="text" class="form-control" id="validationCustom09"
+                    value="Otto" required>
+
+
+                <option value="0">₹ 0 - 7,500</option>
+                <option value="1">₹ 7,500 - 20,000</option>
+                <option value="2">₹ 20,000 and above</option>
+            </select>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-4" style="margin: 24px;">
+            <label for="validationCustom10" class="form-label">Loan Term</label>
+            <select id="Loan Term" name="Loan Term" type="text" class="form-control" id="validationCustom10"
+                    value="Otto" required>
+
+
+                <option value="0">Less than a year</option>
+                <option value="1">1-2 years</option>
+                <option value="2">2 years and above</option>
+            </select>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+
+
+        <br>
+        <div class="col-12" style="margin: 24px;">
+            <button type="submit" class="btn btn-primary">
+                Predict
+            </button>
+        </div>
+    </form>
+
+</div>
+
+
+<script src="{% static 'bootstrap-5.0.0-beta1-dist/js/bootstrap.js' %}"></script>
+
+</body>
+</html>
